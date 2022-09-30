@@ -1,11 +1,11 @@
 <div class="container">
   <div class="upper-data">
-    <img src="../assets/cold.jpg" alt="" *ngIf="14 < 15" />
-    <img src="../assets/hot.jpg" alt="" *ngIf="14 > 15" />
+    <img src="../assets/cold.jpg" alt="" *ngIf="cold" />
+    <img src="../assets/hot.jpg" alt="" *ngIf="!cold" />
 
     <div class="weather-data">
       <div class="location">Weelington</div>
-      <div class="temperature">{{ 14.4 | number: "1.0.0" }}15°C</div>
+      <div class="temperature">{{ temperature | number }}15°C</div>
     </div>
   </div>
   <div class="lower-data">
@@ -16,7 +16,7 @@
           <img src="../assets/min.jpg" alt="" />
           <span>min</span>
         </div>
-        <div class="info-block-value">10°C</div>
+        <div class="info-block-value">{{ minTemperature }}°C</div>
       </div>
 
       <div class="info-block">
@@ -24,7 +24,7 @@
           <img src="../assets/max.jpg" alt="" />
           <span>max</span>
         </div>
-        <div class="info-block-value">20°C</div>
+        <div class="info-block-value">{{ maxTemperrature }}°C</div>
       </div>
 
       <div class="info-block">
@@ -32,7 +32,7 @@
           <img src="../assets/humidity.png" alt="" />
           <span>humidity</span>
         </div>
-        <div class="info-block-value">77%</div>
+        <div class="info-block-value">{{ humidity | percent }}</div>
       </div>
 
       <div class="info-block">
@@ -40,7 +40,7 @@
           <img src="../assets/wind.jpg" alt="" />
           <span>wind</span>
         </div>
-        <div class="info-block-value">3Km/h</div>
+        <div class="info-block-value">{{ wind }}Km/h</div>
       </div>
     </div>
   </div>
