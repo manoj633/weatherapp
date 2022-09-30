@@ -1,11 +1,22 @@
+<div class="search">
+  <form #form="ngForm" (submit)="onSubmit()">
+    <input
+      type="text"
+      name="city"
+      [(ngModel)]="cityName"
+      placeholder="search city"
+    />
+  </form>
+</div>
+
 <div class="container">
   <div class="upper-data">
     <img src="../assets/cold.jpg" alt="" *ngIf="cold" />
     <img src="../assets/hot.jpg" alt="" *ngIf="!cold" />
 
     <div class="weather-data">
-      <div class="location">Weelington</div>
-      <div class="temperature">{{ temperature | number }}15°C</div>
+      <div class="location">{{ city }}</div>
+      <div class="temperature">{{ temperature | number }}°C</div>
     </div>
   </div>
   <div class="lower-data">

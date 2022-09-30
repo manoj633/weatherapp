@@ -100,7 +100,11 @@ body {
     background-color: var(--shadow-light);
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
     margin-top: 2em;
+    z-index: 1;
+    box-shadow: 10px 10px 10px var(--shadow-dark);
 
     display: flex;
     flex-direction: row;
@@ -137,4 +141,20 @@ body {
     align-items: center;
     color: white;
     font-size: 30px;
+}
+
+.search {
+    margin-bottom: 2em;
+    text-align: center;
+}
+
+.search input {
+    background-color: var(--shadow-light);
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    padding: 1.2em;
+    color: var(--grey-1);
+    font-size: 2.5em;
+    text-align: center;
 }

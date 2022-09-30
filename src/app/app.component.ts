@@ -9,7 +9,7 @@ import { WeatherService } from './services/weather.service';
 })
 export class AppComponent implements OnInit {
   title = 'weatherapp';
-  cityName = 'landon';
+  cityName: string = 'london';
   weatherData?: WeatherData;
   minTemperature?: number;
   maxTemperrature?: number;
@@ -17,11 +17,22 @@ export class AppComponent implements OnInit {
   humidity?: number;
   cold?: boolean;
   temperature?: number;
+  city?: string = "Wellington";
 
   constructor(private weatherService: WeatherService) {
   }
 
   ngOnInit(): void {
+    this.getWeatherData(this.cityName);
+    this.cityName = "";
+  }
+
+  onSubmit() {
+    this.getWeatherData(this.cityName);
+    this.cityName = "";
+  }
+
+  private getWeatherData(cityName: string) {
     this.weatherService.getWeatherData(this.cityName).subscribe((response) => {
       this.minTemperature = response.main.temp_min;
       this.maxTemperrature = response.main.temp_max;
@@ -29,9 +40,9 @@ export class AppComponent implements OnInit {
       this.wind = response.wind.speed;
       this.cold = this.minTemperature < 15;
       this.temperature = response.main.temp;
+      this.weatherData = response;
     });
   }
-
 
 
 }
