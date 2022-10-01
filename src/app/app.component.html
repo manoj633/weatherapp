@@ -2,19 +2,67 @@
   <div class="mask">
     <div class="card">
       <div class="left-div">
-        <span class="mainTemperature">26°</span>
+        <span class="mainTemperature">20°</span>
         <div class="locationAndTime">
-          <span class="mainLocation">London</span>
-          <span class="DateAndTime">10:36 - Tuesday, 22 Oct 19</span>
+          <span class="mainLocation">Shivamogga</span>
+          <span class="DateAndTime">08:56 - Saturday, 1 Oct 22</span>
         </div>
         <div class="weatherIconContainer">
-          <span class="icon"></span>
-          <span class="status">sunny</span>
+          <!-- <span class="icon material-symbols-outlined"> light_mode </span> -->
+          <!-- <span class="icon material-symbols-outlined"> rainy </span>
+           -->
+          <span class="icon material-symbols-outlined"> foggy </span>
+          <!-- <span class="icon material-symbols-outlined"> ac_unit </span> -->
+          <!-- <span class="icon material-symbols-outlined"> thunderstorm </span> -->
+          <!-- <span class="icon material-symbols-outlined"> cloudy </span> -->
+          <span class="status">Haze</span>
         </div>
       </div>
       <div class="right-div">
-        <div class="top-div"></div>
-        <div class="bottom-div"></div>
+        <div class="top-div">
+          <form #form="ngForm" (ngSubmit)="onSubmit()">
+            <input
+              class="form-control location-input"
+              id="location"
+              type="text"
+              ngModel
+              name="location"
+              placeholder="Another location"
+            />
+            <button
+              class="search-button"
+              type="submit"
+              [disabled]="!form.dirty"
+            >
+              <span class="material-symbols-outlined"> search </span>
+            </button>
+            <div class="city-list">
+              <button class="cities"><span>Bangalore</span></button>
+              <button class="cities"><span>Mangalore</span></button>
+              <button class="cities"><span>Mysore</span></button>
+              <button class="cities"><span>Hubli</span></button>
+            </div>
+          </form>
+        </div>
+        <hr />
+        <div class="bottom-div">
+          <div class="weather-details-heading">Weather details</div>
+          <div class="weather-details">
+            <div class="weather-headings">
+              <span class="weather">Cloudy</span>
+              <span class="weather">Humidity</span>
+              <span class="weather">Wind</span>
+              <span class="weather">Rain</span>
+            </div>
+            <div class="weather-values">
+              <span class="weather">7%</span>
+              <span class="weather">52%</span>
+              <span class="weather">2Km/h</span>
+              <span class="weather">0mm</span>
+            </div>
+          </div>
+          <hr />
+        </div>
       </div>
     </div>
   </div>
