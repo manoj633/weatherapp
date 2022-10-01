@@ -1,60 +1,22 @@
-<div class="search">
-  <form #form="ngForm" (submit)="onSubmit()">
-    <input
-      type="text"
-      name="city"
-      [(ngModel)]="cityName"
-      placeholder="search city"
-    />
-  </form>
-</div>
-
 <div class="container">
-  <div class="upper-data">
-    <img src="../assets/cold.jpg" alt="" *ngIf="cold" />
-    <img src="../assets/hot.jpg" alt="" *ngIf="!cold" />
-
-    <div class="weather-data">
-      <div class="location">{{ city }}</div>
-      <div class="temperature">{{ temperature | number }}°C</div>
-    </div>
-  </div>
-  <div class="lower-data">
-    <div class="more-info-label">More information</div>
-    <div class="more-info-container">
-      <div class="info-block">
-        <div class="info-block-label">
-          <img src="../assets/min.jpg" alt="" />
-          <span>min</span>
+  <div class="mask">
+    <div class="card">
+      <div class="left-div">
+        <span class="mainTemperature">26°</span>
+        <div class="locationAndTime">
+          <span class="mainLocation">London</span>
+          <span class="DateAndTime">10:36 - Tuesday, 22 Oct 19</span>
         </div>
-        <div class="info-block-value">{{ minTemperature }}°C</div>
+        <div class="weatherIconContainer">
+          <span class="icon"></span>
+          <span class="status">sunny</span>
+        </div>
       </div>
-
-      <div class="info-block">
-        <div class="info-block-label">
-          <img src="../assets/max.jpg" alt="" />
-          <span>max</span>
-        </div>
-        <div class="info-block-value">{{ maxTemperrature }}°C</div>
-      </div>
-
-      <div class="info-block">
-        <div class="info-block-label">
-          <img src="../assets/humidity.png" alt="" />
-          <span>humidity</span>
-        </div>
-        <div class="info-block-value">{{ humidity | percent }}</div>
-      </div>
-
-      <div class="info-block">
-        <div class="info-block-label">
-          <img src="../assets/wind.jpg" alt="" />
-          <span>wind</span>
-        </div>
-        <div class="info-block-value">{{ wind }}Km/h</div>
+      <div class="right-div">
+        <div class="top-div"></div>
+        <div class="bottom-div"></div>
       </div>
     </div>
   </div>
 </div>
-
 <router-outlet></router-outlet>
