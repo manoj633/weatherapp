@@ -74,7 +74,8 @@ export class WeatherComponent implements OnInit {
 
     if (weatherDesc === 'Stormy' ||
       weatherDesc === 'Thunder' ||
-      weatherDesc === 'Thunderstorm') {
+      weatherDesc === 'Thunderstorm' ||
+      weatherDesc === 'Thunderstorm, Light Rain With Thunderstorm') {
       this.url = "../../assets/images/thunderstorm/thunder" + x + ".jpg";
     }
 
