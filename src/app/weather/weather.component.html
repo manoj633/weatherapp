@@ -1,0 +1,157 @@
+<div
+  class="container"
+  *ngIf="weatherDataO$ | async as weatherDataO"
+  [ngStyle]="{
+    'background-image': 'url(' + url + ')'
+  }"
+>
+  <div class="mask" *ngIf="weatherDataO$ | async as weatherDataO">
+    <div class="card">
+      <div
+        class="left-div"
+        [ngStyle]="{ 'background-image': 'url(' + url + ')' }"
+      >
+        <span class="mainTemperature"
+          >{{ weatherDataO.current.temperature }}°</span
+        >
+        <div class="locationAndTime">
+          <span class="mainLocation">{{ weatherDataO.location.name }}</span>
+          <span class="DateAndTime">{{
+            weatherDataO.location.localtime | date: "h:mm a - EEEE, d MMM yy"
+          }}</span>
+        </div>
+        <div class="weatherIconContainer">
+          <span
+            class="icon material-symbols-outlined"
+            *ngIf="
+              weatherDataO.current.weather_descriptions[0] === 'Sunny' ||
+              weatherDataO.current.weather_descriptions[0] === 'Clear' ||
+              weatherDataO.current.weather_descriptions[0] === 'Windy'
+            "
+          >
+            light_mode
+          </span>
+          <span
+            class="icon material-symbols-outlined"
+            *ngIf="
+              weatherDataO.current.weather_descriptions[0] === 'Rain' ||
+              weatherDataO.current.weather_descriptions[0] === 'Rainy' ||
+              weatherDataO.current.weather_descriptions[0] === 'Drizzle' ||
+              weatherDataO.current.weather_descriptions[0] === 'Monsoon' ||
+              weatherDataO.current.weather_descriptions[0] ===
+                'Light rain shower' ||
+              weatherDataO.current.weather_descriptions[0] ===
+                'Moderate or heavy rain shower'
+                ? true
+                : false
+            "
+          >
+            rainy
+          </span>
+
+          <span
+            class="icon material-symbols-outlined"
+            *ngIf="
+              weatherDataO.current.weather_descriptions[0] === 'Foggy' ||
+              weatherDataO.current.weather_descriptions[0] === 'Fog'
+                ? true
+                : false
+            "
+          >
+            foggy
+          </span>
+          <span
+            class="icon material-symbols-outlined"
+            *ngIf="
+              weatherDataO.current.weather_descriptions[0] === 'Snow' ||
+              weatherDataO.current.weather_descriptions[0] === 'Frost' ||
+              weatherDataO.current.weather_descriptions[0] === 'Blizzard'
+            "
+          >
+            ac_unit
+          </span>
+          <span
+            class="icon material-symbols-outlined"
+            *ngIf="
+              weatherDataO.current.weather_descriptions[0] === 'Stormy' ||
+              weatherDataO.current.weather_descriptions[0] === 'Thunder' ||
+              weatherDataO.current.weather_descriptions[0] === 'Thunderstorm'
+            "
+          >
+            thunderstorm
+          </span>
+          <span
+            class="icon material-symbols-outlined"
+            *ngIf="
+              weatherDataO.current.weather_descriptions[0] === 'Cloudy' ||
+              weatherDataO.current.weather_descriptions[0] === 'Cloud' ||
+              weatherDataO.current.weather_descriptions[0] ===
+                'Partly cloudy' ||
+              weatherDataO.current.weather_descriptions[0] === 'Overcast'
+            "
+          >
+            cloudy
+          </span>
+          <span class="status">{{
+            weatherDataO.current.weather_descriptions[0]
+          }}</span>
+        </div>
+      </div>
+      <div class="right-div">
+        <div class="top-div">
+          <form #form="ngForm">
+            <input
+              class="form-control location-input"
+              id="location"
+              type="text"
+              [(ngModel)]="city"
+              name="location"
+              placeholder="Another location"
+              required
+            />
+            <button
+              class="search-button"
+              type="submit"
+              [disabled]="!form.dirty"
+              (click)="onSubmit()"
+            >
+              <span class="material-symbols-outlined"> search </span>
+            </button>
+            <div class="city-list">
+              <button
+                class="cities"
+                *ngFor="let city of cityList"
+                (click)="onSelect(city)"
+              >
+                <span>{{ city }}</span>
+              </button>
+            </div>
+          </form>
+        </div>
+        <hr />
+        <div class="bottom-div">
+          <div class="weather-details-heading">Weather details</div>
+          <div class="weather-details">
+            <div class="weather-headings">
+              <span class="weather">Cloudy</span>
+              <span class="weather">Humidity</span>
+              <span class="weather">Wind</span>
+              <span class="weather">Rain</span>
+            </div>
+            <div class="weather-values">
+              <span class="weather"
+                >{{ weatherDataO.current.cloudcover }}%</span
+              >
+              <span class="weather">{{ weatherDataO.current.humidity }}%</span>
+              <span class="weather"
+                >{{ weatherDataO.current.wind_speed }}Km/h</span
+              >
+              <span class="weather">{{ weatherDataO.current.precip }}mm</span>
+            </div>
+          </div>
+          <hr />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
