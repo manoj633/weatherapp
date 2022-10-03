@@ -164,9 +164,13 @@
     <div class="error-container">
       <img src="../../assets/images/error/some_internal_error.gif" alt="" />
       <div class="error">
-        Error loading the list of users. Please try again later.
+        Some Internal Error occured. Please try again later.
       </div>
     </div>
   </div>
-  <ng-template #loading> Loading users... </ng-template>
+  <ng-template #loading>
+    <div class="loading-container loading">
+      <img src="../../assets/images/loading/loading.gif" />
+    </div>
+  </ng-template>
 </ng-template>
