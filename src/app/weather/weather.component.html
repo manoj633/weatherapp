@@ -1,6 +1,6 @@
 <div
   class="container"
-  *ngIf="weatherDataO$ | async as weatherDataO"
+  *ngIf="weatherDataO$ | async as weatherDataO; else loadingOrError"
   [ngStyle]="{
     'background-image': 'url(' + url + ')'
   }"
@@ -41,7 +41,9 @@
               weatherDataO.current.weather_descriptions[0] ===
                 'Light rain shower' ||
               weatherDataO.current.weather_descriptions[0] ===
-                'Moderate or heavy rain shower'
+                'Moderate or heavy rain shower' ||
+              weatherDataO.current.weather_descriptions[0] ===
+                'Patchy rain possible'
                 ? true
                 : false
             "
@@ -157,3 +159,14 @@
     </div>
   </div>
 </div>
+<ng-template #loadingOrError>
+  <div *ngIf="loadingError$ | async; else loading">
+    <div class="error-container">
+      <img src="../../assets/images/error/some_internal_error.gif" alt="" />
+      <div class="error">
+        Error loading the list of users. Please try again later.
+      </div>
+    </div>
+  </div>
+  <ng-template #loading> Loading users... </ng-template>
+</ng-template>

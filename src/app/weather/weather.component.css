@@ -206,3 +206,20 @@
     position: relative;
     left: 65%;
 }
+
+.error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+
+    background-color: #4f4367;
+}
+
+.error {
+    color: white;
+    font-weight: bold;
+    font-size: 35px;
+}

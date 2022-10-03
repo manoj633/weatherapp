@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { catchError, map, Observable, of, Subject } from 'rxjs';
 import { WeatherData } from '../models/weather.model';
 import { WeatherService } from '../services/weather.service';
 
@@ -11,11 +11,12 @@ import { WeatherService } from '../services/weather.service';
 export class WeatherComponent implements OnInit {
 
   weatherDataO$?: Observable<WeatherData>;
+  loadingError$ = new Subject<boolean>();
   cityName: string = 'Shivamogga';
   city = this.cityName;
   cityList = ['Bangalore', 'Hubli', 'Mangalore', 'Mysore'];
   selected?: boolean;
-  url?: string;
+  url?: string = '../../assets/images/cloudy/cloud1.jpg';
 
   constructor(private weatherService: WeatherService) { }
 
@@ -41,6 +42,13 @@ export class WeatherComponent implements OnInit {
       map(response => {
         this.getURL(response.current.weather_descriptions[0]);
         return response;
+      }),
+      catchError((error) => {
+        // it's important that we log an error here.
+        // Otherwise you won't see an error in the console.
+        console.error('error loading the list of users', error);
+        this.loadingError$.next(true);
+        return of();
       })
     );
   }
@@ -58,7 +66,8 @@ export class WeatherComponent implements OnInit {
       weatherDesc === 'Drizzle' ||
       weatherDesc === 'Monsoon' ||
       weatherDesc === 'Light rain shower' ||
-      weatherDesc === 'Moderate or heavy rain shower') {
+      weatherDesc === 'Moderate or heavy rain shower' ||
+      weatherDesc === 'Patchy rain possible') {
       this.url = "../../assets/images/rain/rain" + x + ".jpg";
     }
 
@@ -85,5 +94,6 @@ export class WeatherComponent implements OnInit {
       weatherDesc === 'Overcast') {
       this.url = "../../assets/images/cloudy/cloud" + x + ".jpg";
     }
+    console.log(this.url);
   }
 }
