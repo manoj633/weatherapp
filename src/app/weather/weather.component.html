@@ -112,11 +112,12 @@
               name="location"
               placeholder="Another location"
               required
+              pattern="[a-zA-z ]+"
             />
             <button
               class="search-button"
               type="submit"
-              [disabled]="!form.dirty"
+              [disabled]="!form.valid"
               (click)="onSubmit()"
             >
               <span class="material-symbols-outlined"> search </span>

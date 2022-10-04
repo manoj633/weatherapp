@@ -99,6 +99,10 @@
     flex-direction: column;
 }
 
+input.ng-invalid.ng-dirty {
+    border: 1px solid red;;
+}
+
 .location-input {
     border: none;
     background: transparent;
@@ -154,6 +158,11 @@
     color: rgb(221, 221, 221);
     font-size: 18px;
     align-items: flex-start;
+}
+
+.validation-message {
+    color: rgb(255, 133, 133);
+    font-size: 18px;
 }
 
 .right-div hr {

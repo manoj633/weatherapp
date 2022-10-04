@@ -15,26 +15,20 @@ export class WeatherComponent implements OnInit {
   cityName: string = 'Shivamogga';
   city = this.cityName;
   cityList = ['Bangalore', 'Hubli', 'Mangalore', 'Mysore'];
-  selected?: boolean;
   url?: string = '../../assets/images/cloudy/cloud1.jpg';
 
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit(): void {
     this.getWeatherData(this.cityName);
-    this.selected = false;
   }
 
   onSubmit() {
-    if (!this.selected) {
-      this.getWeatherData(this.city);
-      this.selected = false;
-    }
+    this.getWeatherData(this.city);
   }
 
   onSelect(cityName: string) {
     this.getWeatherData(cityName);
-    this.selected = true;
   }
 
   private getWeatherData(cityName: string) {
@@ -44,8 +38,6 @@ export class WeatherComponent implements OnInit {
         return response;
       }),
       catchError((error) => {
-        // it's important that we log an error here.
-        // Otherwise you won't see an error in the console.
         console.error('error loading the list of users', error);
         this.loadingError$.next(true);
         return of();
