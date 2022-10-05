@@ -8,7 +8,7 @@ export const environment = {
   WeatherAPIHostLabel: 'X-RapidAPI-Host',
   WeatherAPIHostValue: 'open-weather13.p.rapidapi.com',
   WeatherAPIKeyLabel: 'weatherAPI-key',
-  WeatherAPIKeyValue: '53c91af637a90f2f39353d6a36e0e373',
+  WeatherAPIKeyValue: 'a1994f665039416c7c37d4a5f39c58bc',
 };
 
 /*
