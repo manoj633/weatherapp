@@ -243,3 +243,12 @@ input.ng-invalid.ng-dirty {
 
     background-color: #334960;
 }
+
+@media only screen and (max-width: 600px) {
+    .error {
+        text-align: center;
+        font-size: 30px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+  }
