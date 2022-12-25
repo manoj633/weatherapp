@@ -4,9 +4,7 @@
     align-items: center;
     width: 100vw;
     height: 100vh;
-    
 }
-
 
 .card {
     position: relative;
@@ -20,7 +18,7 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     width: 100vw;
     height: 100vh;
 
@@ -47,17 +45,11 @@
 
 .mainTemperature {
     font-size: 100px;
-    font-weight:500;
-    position: relative;
-    bottom: 80px;
-    left: 72px;
+    font-weight: 500;
 }
 
 .locationAndTime {
     display: inline;
-    position: relative;
-    left: 81px;
-    bottom: 99px;
 }
 
 .mainLocation {
@@ -70,10 +62,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    position: relative;
-    left: 121px;
-    bottom: 100px;
 }
 
 .icon {
@@ -100,7 +88,8 @@
 }
 
 input.ng-invalid.ng-dirty {
-    border: 1px solid red;;
+    border: 1px solid red;
+    ;
 }
 
 .location-input {
@@ -121,12 +110,13 @@ input.ng-invalid.ng-dirty {
 ::placeholder {
     color: rgb(221, 221, 221);
 }
+
 .material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 48
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48
 }
 
 .search-button {
@@ -136,7 +126,7 @@ input.ng-invalid.ng-dirty {
 }
 
 .search-button:hover {
-    background-color: rgba(255, 255, 255); 
+    background-color: rgba(255, 255, 255);
 }
 
 .city-list {
@@ -181,7 +171,7 @@ input.ng-invalid.ng-dirty {
     color: white;
 }
 
-.weather { 
+.weather {
     font-size: 18px;
     padding-top: 12%;
     color: rgb(221, 221, 221);
@@ -209,8 +199,9 @@ input.ng-invalid.ng-dirty {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    width: 50%;   
+    width: 50%;
 }
+
 .value {
     position: relative;
     left: 65%;
@@ -244,6 +235,35 @@ input.ng-invalid.ng-dirty {
     background-color: #334960;
 }
 
+@media only screen and (min-width: 1080px) {
+    .mainTemperature {
+        position: relative;
+        bottom: 80px;
+        left: 72px;
+    }
+
+    .locationAndTime {
+        position: relative;
+        left: 81px;
+        bottom: 99px;
+    }
+
+    .weatherIconContainer {
+        position: relative;
+        left: 121px;
+        bottom: 100px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .card {
+        width: 100vw;
+        height: 100vh;
+        display: inline-flex;
+        flex-direction: column;
+    }
+}
+
 @media only screen and (max-width: 600px) {
     .error {
         text-align: center;
@@ -251,4 +271,48 @@ input.ng-invalid.ng-dirty {
         margin-left: 20px;
         margin-right: 20px;
     }
-  }
+
+    .left-div {
+        display: inline-flex;
+        flex-direction: column;
+        height: 40vh;
+        width: 100%;
+
+        align-items: center;
+    }
+
+    .right-div {
+        display: inline-flex;
+        flex-direction: column;
+        height: 60vh;
+        width: 100%;
+    }
+
+    .mainTemperature {
+        font-size: 50px;
+        font-weight: 500;
+
+        position: relative;
+        top: 60%;
+        right: 15%;
+    }
+
+    .locationAndTime {
+        display: block;
+
+        position: relative;
+        top: 10%;
+    }
+
+    .weatherIconContainer {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        position: relative;
+        top: 15%;
+        left: 20%;
+    }
+
+}
