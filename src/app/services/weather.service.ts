@@ -13,7 +13,7 @@ export class WeatherService {
 
   getWeatherData(cityName: string): Observable<WeatherData> {
     let searchParams = new HttpParams();
-    searchParams = searchParams.append('access_key', '8b61ff1300d89deb1a3e80f86c092d88');
+    searchParams = searchParams.append('access_key', 'a284c09c00c3c12369b32e9fe10315ef');
     searchParams = searchParams.append('query', cityName);
     return this.http.get<WeatherData>('https://api.weatherstack.com/current', {
       params: searchParams
