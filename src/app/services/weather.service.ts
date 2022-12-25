@@ -13,9 +13,10 @@ export class WeatherService {
 
   getWeatherData(cityName: string): Observable<WeatherData> {
     let searchParams = new HttpParams();
-    searchParams = searchParams.append('access_key', 'a284c09c00c3c12369b32e9fe10315ef');
-    searchParams = searchParams.append('query', cityName);
-    return this.http.get<WeatherData>('https://api.weatherstack.com/current', {
+    searchParams = searchParams.append('appid', '1afe03d3bafd98b815af4850f400cb7d');
+    searchParams = searchParams.append('q', cityName);
+    searchParams = searchParams.append('units', 'metric');
+    return this.http.get<WeatherData>('https://api.openweathermap.org/data/2.5/weather', {
       params: searchParams
     })
   }

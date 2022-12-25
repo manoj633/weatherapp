@@ -34,7 +34,7 @@ export class WeatherComponent implements OnInit {
   private getWeatherData(cityName: string) {
     this.weatherDataO$ = this.weatherService.getWeatherData(cityName).pipe(
       map(response => {
-        this.getURL(response.current.weather_descriptions[0]);
+        this.getURL(response.weather[0].description);
         return response;
       }),
       catchError((error) => {
@@ -47,43 +47,69 @@ export class WeatherComponent implements OnInit {
 
   public getURL(weatherDesc: string) {
     let x = Math.floor((Math.random() * 8) + 1);
-    if (weatherDesc === 'Sunny' ||
+    if (weatherDesc === 'clear sky' ||
       weatherDesc === 'Clear' ||
       weatherDesc === 'Windy') {
       this.url = "../../assets/images/summer/summer" + x + ".jpg";
     }
 
-    if (weatherDesc === 'Rain' ||
-      weatherDesc === 'Rainy' ||
-      weatherDesc === 'Drizzle' ||
-      weatherDesc === 'Monsoon' ||
-      weatherDesc === 'Light rain shower' ||
-      weatherDesc === 'Moderate or heavy rain shower' ||
-      weatherDesc === 'Patchy rain possible') {
+    if (weatherDesc === 'light rain' ||
+      weatherDesc === 'moderate rain' ||
+      weatherDesc === 'heavy intensity rain' ||
+      weatherDesc === 'very heavy rain' ||
+      weatherDesc === 'extreme rain' ||
+      weatherDesc === 'freezing rain' ||
+      weatherDesc === 'light intensity shower rain' ||
+      weatherDesc === 'shower rain' ||
+      weatherDesc === 'heavy intensity shower rain' ||
+      weatherDesc === 'ragged shower rain' ||
+      weatherDesc === 'light intensity drizzle' ||
+      weatherDesc === 'drizzle' ||
+      weatherDesc === 'heavy intensity drizzle' ||
+      weatherDesc === 'light intensity drizzle rain' ||
+      weatherDesc === 'drizzle rain' ||
+      weatherDesc === 'heavy intensity drizzle rain' ||
+      weatherDesc === 'shower rain and drizzle' ||
+      weatherDesc === 'heavy shower rain and drizzle' ||
+      weatherDesc === 'shower drizzle') {
       this.url = "../../assets/images/rain/rain" + x + ".jpg";
     }
 
-    if (weatherDesc === 'Foggy' || weatherDesc === 'Fog') {
+    if (weatherDesc === 'mist' || weatherDesc === 'Fog' || weatherDesc === 'Haze') {
       this.url = "../../assets/images/fog/fog" + x + ".jpg";
     }
 
-    if (weatherDesc === 'Snow' ||
-      weatherDesc === 'Frost' ||
-      weatherDesc === 'Blizzard') {
+    if (weatherDesc === 'light snow' ||
+      weatherDesc === 'Snow' ||
+      weatherDesc === 'Heavy snow' ||
+      weatherDesc === 'Sleet' ||
+      weatherDesc === 'Light shower sleet' ||
+      weatherDesc === 'Shower sleet' ||
+      weatherDesc === 'Light rain and snow' ||
+      weatherDesc === 'Rain and snow' ||
+      weatherDesc === 'Light shower snow' ||
+      weatherDesc === 'Shower snow' ||
+      weatherDesc === 'Heavy shower snow') {
       this.url = "../../assets/images/snow/snow" + x + ".jpg";
     }
 
-    if (weatherDesc === 'Stormy' ||
-      weatherDesc === 'Thunder' ||
-      weatherDesc === 'Thunderstorm' ||
-      weatherDesc === 'Thunderstorm, Light Rain With Thunderstorm') {
+    if (weatherDesc === 'thunderstorm with light rain' ||
+      weatherDesc === 'thunderstorm with rain' ||
+      weatherDesc === 'thunderstorm with heavy rain' ||
+      weatherDesc === 'light thunderstorm' ||
+      weatherDesc === 'thunderstorm' ||
+      weatherDesc === 'heavy thunderstorm' ||
+      weatherDesc === 'ragged thunderstorm' ||
+      weatherDesc === 'thunderstorm with light drizzle' ||
+      weatherDesc === 'thunderstorm with drizzle' ||
+      weatherDesc === 'thunderstorm with heavy drizzle') {
       this.url = "../../assets/images/thunderstorm/thunder" + x + ".jpg";
     }
 
-    if (weatherDesc === 'Cloudy' ||
-      weatherDesc === 'Cloud' ||
-      weatherDesc === 'Partly cloudy' ||
-      weatherDesc === 'Overcast') {
+    if (weatherDesc === 'few clouds' ||
+      weatherDesc === 'scattered clouds' ||
+      weatherDesc === 'broken clouds' ||
+      weatherDesc === 'overcast clouds') {
       this.url = "../../assets/images/cloudy/cloud" + x + ".jpg";
     }
     console.log(this.url);
