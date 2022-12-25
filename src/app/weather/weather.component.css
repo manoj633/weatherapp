@@ -101,7 +101,6 @@ input.ng-invalid.ng-dirty {
 
     position: relative;
     width: 291px;
-    top: 20px;
     color: rgb(221, 221, 221);
     font-size: 20px;
 }
@@ -326,17 +325,31 @@ input.ng-invalid.ng-dirty {
 
     .top-div {
         height: auto;
+        top: 5%;
+        justify-content: center;
     }
 
     .location-input {
         border: none;
         background: transparent;
-        border-bottom: 1px solid rgba(221, 221, 221, 0.863);
         outline: none;
         font-size: 16px;
-
+        left: 10%;
         color: rgb(221, 221, 221);
         font-size: 20px;
+    }
+
+    .search-button {
+        width: 50px;
+        height: 50px;
+    }
+
+    hr {
+        top: 9%;
+    }
+
+    .bottom-div {
+        top: 15%;
     }
 
 }
