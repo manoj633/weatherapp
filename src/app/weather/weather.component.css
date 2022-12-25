@@ -100,7 +100,6 @@ input.ng-invalid.ng-dirty {
     font-size: 16px;
 
     position: relative;
-    right: 22px;
     width: 291px;
     top: 20px;
     color: rgb(221, 221, 221);
@@ -253,6 +252,12 @@ input.ng-invalid.ng-dirty {
         left: 121px;
         bottom: 100px;
     }
+
+    .location-input {
+        right: 22px;
+        width: 291px;
+        top: 20px;
+    }
 }
 
 @media only screen and (max-width: 600px) {
@@ -313,6 +318,25 @@ input.ng-invalid.ng-dirty {
         position: relative;
         top: 15%;
         left: 20%;
+    }
+
+    .city-list {
+        display: none;
+    }
+
+    .top-div {
+        height: auto;
+    }
+
+    .location-input {
+        border: none;
+        background: transparent;
+        border-bottom: 1px solid rgba(221, 221, 221, 0.863);
+        outline: none;
+        font-size: 16px;
+
+        color: rgb(221, 221, 221);
+        font-size: 20px;
     }
 
 }
