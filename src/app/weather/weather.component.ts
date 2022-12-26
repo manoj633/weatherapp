@@ -35,6 +35,7 @@ export class WeatherComponent implements OnInit {
     this.weatherDataO$ = this.weatherService.getWeatherData(cityName).pipe(
       map(response => {
         this.getURL(response.weather[0].description);
+        response.dt = new Date()
         return response;
       }),
       catchError((error) => {

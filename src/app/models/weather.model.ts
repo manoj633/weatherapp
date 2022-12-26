@@ -6,7 +6,7 @@ export interface WeatherData {
     visibility: number
     wind: Wind
     clouds: Clouds
-    dt: number
+    dt: number | Date
     sys: Sys
     timezone: number
     id: number
