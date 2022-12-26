@@ -189,7 +189,7 @@ input.ng-invalid.ng-dirty {
     background-color: #334960;
 }
 
-@media only screen and (min-width: 1080px) {
+@media only screen and (min-width: 1501px) {
 
     .card {
         overflow-y: hidden;
@@ -225,16 +225,89 @@ input.ng-invalid.ng-dirty {
     }
 }
 
-@media only screen and (max-width: 600px) {
+
+@media (min-width: 800px) and (max-width: 1500px) {
+    .left-div {
+        width: 60%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .left-div-mask {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        background: radial-gradient(circle, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.468) 0%, rgba(255, 255, 255, 0) 100%);
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .right-div {
+        width: 40%;
+    }
+
+    .mainTemperature {
+        font-size: 60px;
+    }
+
+    .weather-info {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .weather-data-container {
+        display: inline-flex;
+        flex-direction: row;
+    }
+
+    .top-div {
+        width: 100%;
+        display: block;
+        padding: 15px;
+    }
+
+    .location-input {
+        width: 70%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .search-button {
+        width: 4vw;
+        height: 4vw;
+    }
+
+    .cities {
+        margin-left: 15%;
+    }
+
+    .weather-details {
+        padding-top: 12%;
+    }
+}
+
+@media (min-width: 1150px) and (max-width: 1500px) {
+    .final-ruler {
+        display: none;
+    }
+
+    .weather-details {
+        padding-top: 40px;
+        padding-bottom: 0px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
     .card {
         width: 100vw;
         height: 100vh;
         display: inline-flex;
         flex-direction: column;
     }
-}
 
-@media only screen and (max-width: 600px) {
     .error {
         text-align: center;
         font-size: 30px;

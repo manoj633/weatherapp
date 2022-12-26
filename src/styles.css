@@ -66,7 +66,14 @@ hr {
     background-color: rgba(0, 0, 0, 0.5);
     width: 100vw;
     height: 100vh;
+}
 
+.left-div-mask {
+    display: inline-flex;
+    align-items: flex-end;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100vw;
+    height: 100vh;
 }
 
 .left-div {
