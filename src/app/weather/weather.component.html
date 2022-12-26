@@ -76,7 +76,7 @@
                   *ngIf="
                     weatherDataO.weather[0].description === 'mist' ||
                     weatherDataO.weather[0].description === 'Fog' ||
-                    weatherDataO.weather[0].description === 'Haze'
+                    weatherDataO.weather[0].description === 'haze'
                       ? true
                       : false
                   "
@@ -87,19 +87,19 @@
                   class="icon material-symbols-outlined"
                   *ngIf="
                     weatherDataO.weather[0].description === 'light snow' ||
-                    weatherDataO.weather[0].description === 'Snow' ||
-                    weatherDataO.weather[0].description === 'Heavy snow' ||
-                    weatherDataO.weather[0].description === 'Sleet' ||
+                    weatherDataO.weather[0].description === 'snow' ||
+                    weatherDataO.weather[0].description === 'heavy snow' ||
+                    weatherDataO.weather[0].description === 'sleet' ||
                     weatherDataO.weather[0].description ===
-                      'Light shower sleet' ||
-                    weatherDataO.weather[0].description === 'Shower sleet' ||
+                      'light shower sleet' ||
+                    weatherDataO.weather[0].description === 'shower sleet' ||
                     weatherDataO.weather[0].description ===
                       'Light rain and snow' ||
                     weatherDataO.weather[0].description === 'Rain and snow' ||
                     weatherDataO.weather[0].description ===
-                      'Light shower snow' ||
-                    weatherDataO.weather[0].description === 'Shower snow' ||
-                    weatherDataO.weather[0].description === 'Heavy shower snow'
+                      'light shower snow' ||
+                    weatherDataO.weather[0].description === 'shower snow' ||
+                    weatherDataO.weather[0].description === 'heavy shower snow'
                   "
                 >
                   ac_unit
