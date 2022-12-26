@@ -11,126 +11,131 @@
         class="left-div"
         [ngStyle]="{ 'background-image': 'url(' + url + ')' }"
       >
-        <span class="mainTemperature">{{ weatherDataO.main.temp }}°</span>
         <div class="locationAndTime">
           <span class="mainLocation">{{ weatherDataO.name }}</span>
           <span class="DateAndTime">{{
             weatherDataO.dt | date : "h:mm a - EEEE, d MMM yy"
           }}</span>
         </div>
-        <div class="weatherIconContainer">
-          <span
-            class="icon material-symbols-outlined"
-            *ngIf="
-              weatherDataO.weather[0].description === 'clear sky' ||
-              weatherDataO.weather[0].description === 'Clear' ||
-              weatherDataO.weather[0].description === 'Windy'
-            "
-          >
-            light_mode
-          </span>
-          <span
-            class="icon material-symbols-outlined"
-            *ngIf="
-              weatherDataO.weather[0].description === 'light rain' ||
-              weatherDataO.weather[0].description === 'moderate rain' ||
-              weatherDataO.weather[0].description === 'heavy intensity rain' ||
-              weatherDataO.weather[0].description === 'very heavy rain' ||
-              weatherDataO.weather[0].description === 'extreme rain' ||
-              weatherDataO.weather[0].description === 'freezing rain' ||
-              weatherDataO.weather[0].description ===
-                'light intensity shower rain' ||
-              weatherDataO.weather[0].description === 'shower rain' ||
-              weatherDataO.weather[0].description ===
-                'heavy intensity shower rain' ||
-              weatherDataO.weather[0].description === 'ragged shower rain' ||
-              weatherDataO.weather[0].description ===
-                'light intensity drizzle' ||
-              weatherDataO.weather[0].description === 'drizzle' ||
-              weatherDataO.weather[0].description ===
-                'heavy intensity drizzle' ||
-              weatherDataO.weather[0].description ===
-                'light intensity drizzle rain' ||
-              weatherDataO.weather[0].description === 'drizzle rain' ||
-              weatherDataO.weather[0].description ===
-                'heavy intensity drizzle rain' ||
-              weatherDataO.weather[0].description ===
-                'shower rain and drizzle' ||
-              weatherDataO.weather[0].description ===
-                'heavy shower rain and drizzle' ||
-              weatherDataO.weather[0].description === 'shower drizzle'
-                ? true
-                : false
-            "
-          >
-            rainy
-          </span>
+        <div class="weather-data-container">
+          <div class="mainTemperature">{{ weatherDataO.main.temp }}°</div>
+          <div class="weatherIconContainer">
+            <span
+              class="icon material-symbols-outlined"
+              *ngIf="
+                weatherDataO.weather[0].description === 'clear sky' ||
+                weatherDataO.weather[0].description === 'Clear' ||
+                weatherDataO.weather[0].description === 'Windy'
+              "
+            >
+              light_mode
+            </span>
+            <span
+              class="icon material-symbols-outlined"
+              *ngIf="
+                weatherDataO.weather[0].description === 'light rain' ||
+                weatherDataO.weather[0].description === 'moderate rain' ||
+                weatherDataO.weather[0].description ===
+                  'heavy intensity rain' ||
+                weatherDataO.weather[0].description === 'very heavy rain' ||
+                weatherDataO.weather[0].description === 'extreme rain' ||
+                weatherDataO.weather[0].description === 'freezing rain' ||
+                weatherDataO.weather[0].description ===
+                  'light intensity shower rain' ||
+                weatherDataO.weather[0].description === 'shower rain' ||
+                weatherDataO.weather[0].description ===
+                  'heavy intensity shower rain' ||
+                weatherDataO.weather[0].description === 'ragged shower rain' ||
+                weatherDataO.weather[0].description ===
+                  'light intensity drizzle' ||
+                weatherDataO.weather[0].description === 'drizzle' ||
+                weatherDataO.weather[0].description ===
+                  'heavy intensity drizzle' ||
+                weatherDataO.weather[0].description ===
+                  'light intensity drizzle rain' ||
+                weatherDataO.weather[0].description === 'drizzle rain' ||
+                weatherDataO.weather[0].description ===
+                  'heavy intensity drizzle rain' ||
+                weatherDataO.weather[0].description ===
+                  'shower rain and drizzle' ||
+                weatherDataO.weather[0].description ===
+                  'heavy shower rain and drizzle' ||
+                weatherDataO.weather[0].description === 'shower drizzle'
+                  ? true
+                  : false
+              "
+            >
+              rainy
+            </span>
 
-          <span
-            class="icon material-symbols-outlined"
-            *ngIf="
-              weatherDataO.weather[0].description === 'mist' ||
-              weatherDataO.weather[0].description === 'Fog' ||
-              weatherDataO.weather[0].description === 'Haze'
-                ? true
-                : false
-            "
-          >
-            foggy
-          </span>
-          <span
-            class="icon material-symbols-outlined"
-            *ngIf="
-              weatherDataO.weather[0].description === 'light snow' ||
-              weatherDataO.weather[0].description === 'Snow' ||
-              weatherDataO.weather[0].description === 'Heavy snow' ||
-              weatherDataO.weather[0].description === 'Sleet' ||
-              weatherDataO.weather[0].description === 'Light shower sleet' ||
-              weatherDataO.weather[0].description === 'Shower sleet' ||
-              weatherDataO.weather[0].description === 'Light rain and snow' ||
-              weatherDataO.weather[0].description === 'Rain and snow' ||
-              weatherDataO.weather[0].description === 'Light shower snow' ||
-              weatherDataO.weather[0].description === 'Shower snow' ||
-              weatherDataO.weather[0].description === 'Heavy shower snow'
-            "
-          >
-            ac_unit
-          </span>
-          <span
-            class="icon material-symbols-outlined"
-            *ngIf="
-              weatherDataO.weather[0].description ===
-                'thunderstorm with light rain' ||
-              weatherDataO.weather[0].description ===
-                'thunderstorm with rain' ||
-              weatherDataO.weather[0].description ===
-                'thunderstorm with heavy rain' ||
-              weatherDataO.weather[0].description === 'light thunderstorm' ||
-              weatherDataO.weather[0].description === 'thunderstorm' ||
-              weatherDataO.weather[0].description === 'heavy thunderstorm' ||
-              weatherDataO.weather[0].description === 'ragged thunderstorm' ||
-              weatherDataO.weather[0].description ===
-                'thunderstorm with light drizzle' ||
-              weatherDataO.weather[0].description ===
-                'thunderstorm with drizzle' ||
-              weatherDataO.weather[0].description ===
-                'thunderstorm with heavy drizzle'
-            "
-          >
-            thunderstorm
-          </span>
-          <span
-            class="icon material-symbols-outlined"
-            *ngIf="
-              weatherDataO.weather[0].description === 'few clouds' ||
-              weatherDataO.weather[0].description === 'scattered clouds' ||
-              weatherDataO.weather[0].description === 'broken clouds' ||
-              weatherDataO.weather[0].description === 'overcast clouds'
-            "
-          >
-            cloudy
-          </span>
-          <span class="status">{{ weatherDataO.weather[0].description }}</span>
+            <span
+              class="icon material-symbols-outlined"
+              *ngIf="
+                weatherDataO.weather[0].description === 'mist' ||
+                weatherDataO.weather[0].description === 'Fog' ||
+                weatherDataO.weather[0].description === 'Haze'
+                  ? true
+                  : false
+              "
+            >
+              foggy
+            </span>
+            <span
+              class="icon material-symbols-outlined"
+              *ngIf="
+                weatherDataO.weather[0].description === 'light snow' ||
+                weatherDataO.weather[0].description === 'Snow' ||
+                weatherDataO.weather[0].description === 'Heavy snow' ||
+                weatherDataO.weather[0].description === 'Sleet' ||
+                weatherDataO.weather[0].description === 'Light shower sleet' ||
+                weatherDataO.weather[0].description === 'Shower sleet' ||
+                weatherDataO.weather[0].description === 'Light rain and snow' ||
+                weatherDataO.weather[0].description === 'Rain and snow' ||
+                weatherDataO.weather[0].description === 'Light shower snow' ||
+                weatherDataO.weather[0].description === 'Shower snow' ||
+                weatherDataO.weather[0].description === 'Heavy shower snow'
+              "
+            >
+              ac_unit
+            </span>
+            <span
+              class="icon material-symbols-outlined"
+              *ngIf="
+                weatherDataO.weather[0].description ===
+                  'thunderstorm with light rain' ||
+                weatherDataO.weather[0].description ===
+                  'thunderstorm with rain' ||
+                weatherDataO.weather[0].description ===
+                  'thunderstorm with heavy rain' ||
+                weatherDataO.weather[0].description === 'light thunderstorm' ||
+                weatherDataO.weather[0].description === 'thunderstorm' ||
+                weatherDataO.weather[0].description === 'heavy thunderstorm' ||
+                weatherDataO.weather[0].description === 'ragged thunderstorm' ||
+                weatherDataO.weather[0].description ===
+                  'thunderstorm with light drizzle' ||
+                weatherDataO.weather[0].description ===
+                  'thunderstorm with drizzle' ||
+                weatherDataO.weather[0].description ===
+                  'thunderstorm with heavy drizzle'
+              "
+            >
+              thunderstorm
+            </span>
+            <span
+              class="icon material-symbols-outlined"
+              *ngIf="
+                weatherDataO.weather[0].description === 'few clouds' ||
+                weatherDataO.weather[0].description === 'scattered clouds' ||
+                weatherDataO.weather[0].description === 'broken clouds' ||
+                weatherDataO.weather[0].description === 'overcast clouds'
+              "
+            >
+              cloudy
+            </span>
+            <span class="status">{{
+              weatherDataO.weather[0].description
+            }}</span>
+          </div>
         </div>
       </div>
       <div class="right-div">
