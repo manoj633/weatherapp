@@ -111,6 +111,7 @@ input.ng-invalid.ng-dirty {
 
 .right-div hr {
     width: 90%;
+    backdrop-filter: blur(0.15rem);
     position: relative;
     left: 5%;
 }
@@ -250,6 +251,7 @@ input.ng-invalid.ng-dirty {
     }
 
     .right-div {
+        backdrop-filter: blur(0.15rem);
         display: inline-flex;
         flex-direction: column;
         height: 60vh;
@@ -365,6 +367,7 @@ input.ng-invalid.ng-dirty {
     }
 
     .right-div {
+        backdrop-filter: blur(0.15rem);
         width: 40%;
     }
 

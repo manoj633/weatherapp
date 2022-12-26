@@ -88,6 +88,7 @@ hr {
 }
 
 .right-div {
+    backdrop-filter: blur(0.15rem);
     display: inline-flex;
     flex-direction: column;
     background: linear-gradient(to bottom right, rgba(22, 62, 77, 0.58), rgba(155, 71, 53, 0.694));
