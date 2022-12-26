@@ -74,8 +74,8 @@ input.ng-invalid.ng-dirty {
 }
 
 .search-button {
-    width: 80px;
-    height: 80px;
+    width: 5vw;
+    height: 5vw;
     background-color: rgba(255, 255, 255, 0.797);
 }
 
@@ -336,5 +336,87 @@ input.ng-invalid.ng-dirty {
 
         justify-content: center;
         align-items: center;
+    }
+
+    .left-div-mask {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1500px) {
+    .left-div {
+        width: 60%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .left-div-mask {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        background: radial-gradient(circle, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.468) 0%, rgba(255, 255, 255, 0) 100%);
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .right-div {
+        width: 40%;
+    }
+
+    .mainTemperature {
+        font-size: 60px;
+    }
+
+    .weather-info {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .weather-data-container {
+        display: inline-flex;
+        flex-direction: row;
+    }
+
+    .top-div {
+        width: 100%;
+        display: block;
+        padding: 15px;
+    }
+
+    .location-input {
+        width: 70%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .search-button {
+        width: 4vw;
+        height: 4vw;
+    }
+
+    .cities {
+        margin-left: 15%;
+    }
+
+    .weather-details {
+        padding-top: 12%;
+    }
+}
+
+@media (min-width: 1150px) and (max-width: 1500px) {
+    .final-ruler {
+        display: none;
+    }
+
+    .weather-details {
+        padding-top: 40px;
+        padding-bottom: 0px;
     }
 }
