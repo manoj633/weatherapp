@@ -81,16 +81,16 @@ export class WeatherComponent implements OnInit {
     }
 
     if (weatherDesc === 'light snow' ||
-      weatherDesc === 'Snow' ||
-      weatherDesc === 'Heavy snow' ||
-      weatherDesc === 'Sleet' ||
-      weatherDesc === 'Light shower sleet' ||
-      weatherDesc === 'Shower sleet' ||
-      weatherDesc === 'Light rain and snow' ||
-      weatherDesc === 'Rain and snow' ||
-      weatherDesc === 'Light shower snow' ||
-      weatherDesc === 'Shower snow' ||
-      weatherDesc === 'Heavy shower snow') {
+      weatherDesc === 'snow' ||
+      weatherDesc === 'heavy snow' ||
+      weatherDesc === 'sleet' ||
+      weatherDesc === 'light shower sleet' ||
+      weatherDesc === 'shower sleet' ||
+      weatherDesc === 'light rain and snow' ||
+      weatherDesc === 'rain and snow' ||
+      weatherDesc === 'light shower snow' ||
+      weatherDesc === 'shower snow' ||
+      weatherDesc === 'heavy shower snow') {
       this.url = "../../assets/images/snow/snow" + x + ".jpg";
     }
 
