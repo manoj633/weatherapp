@@ -225,7 +225,7 @@ input.ng-invalid.ng-dirty {
     }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 950px) {
     .card {
         width: 100vw;
         height: 100vh;
@@ -347,7 +347,7 @@ input.ng-invalid.ng-dirty {
     }
 }
 
-@media (min-width: 800px) and (max-width: 1500px) {
+@media (min-width: 951px) and (max-width: 1500px) {
     .left-div {
         width: 60%;
         display: inline-flex;
