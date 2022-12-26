@@ -29,3 +29,49 @@ body {
 hr {
     color: rgba(171, 171, 171, 0.543);
 }
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.card {
+    position: relative;
+    display: inline-flex;
+    width: 80vw;
+    height: 80vh;
+    overflow-y: scroll;
+    box-shadow: -15px -15px 30px 5px rgba(228, 227, 227, 0.194), 5px 5px 20px 0px rgba(11, 11, 11, 0.619);
+}
+
+.mask {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+
+}
+
+.left-div {
+    display: inline-flex;
+    align-items: flex-end;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 65%;
+    color: white;
+    height: 100%;
+}
+
+.right-div {
+    display: inline-flex;
+    flex-direction: column;
+    background: linear-gradient(to bottom right, rgba(22, 62, 77, 0.58), rgba(155, 71, 53, 0.694));
+    width: 35%;
+    height: 100%
+}
