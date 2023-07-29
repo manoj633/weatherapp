@@ -55,7 +55,7 @@ hr {
     display: inline-flex;
     width: 80vw;
     height: 80vh;
-    overflow-y: scroll;
+/*     overflow-y: scroll; */
     box-shadow: -15px -15px 30px 5px rgba(228, 227, 227, 0.194), 5px 5px 20px 0px rgba(11, 11, 11, 0.619);
 }
 
