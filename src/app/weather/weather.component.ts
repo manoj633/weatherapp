@@ -24,10 +24,22 @@ export class WeatherComponent implements OnInit {
   }
 
   onSubmit() {
-    this.getWeatherData(this.city);
+    this.handleFormSubmission(this.city);
   }
 
   onSelect(cityName: string) {
+    this.handleFormSelection(cityName);
+  }
+
+  public handleFormSubmission(cityName: string) {
+    try {
+      this.getWeatherData(cityName);
+    } catch (error) {
+      console.error('Error while getting weather data', error);
+    }
+  }
+
+  private handleFormSelection(cityName: string) {
     this.getWeatherData(cityName);
   }
 
@@ -46,72 +58,74 @@ export class WeatherComponent implements OnInit {
     );
   }
 
-  public getURL(weatherDesc: string) {
-    let x = Math.floor((Math.random() * 8) + 1);
-    if (weatherDesc === 'clear sky' ||
-      weatherDesc === 'Clear' ||
-      weatherDesc === 'Windy') {
-      this.url = "../../assets/images/summer/summer" + x + ".jpg";
-    }
+  private getRandomNumber = () => Math.floor((Math.random() * 8) + 1);
 
-    if (weatherDesc === 'light rain' ||
-      weatherDesc === 'moderate rain' ||
-      weatherDesc === 'heavy intensity rain' ||
-      weatherDesc === 'very heavy rain' ||
-      weatherDesc === 'extreme rain' ||
-      weatherDesc === 'freezing rain' ||
-      weatherDesc === 'light intensity shower rain' ||
-      weatherDesc === 'shower rain' ||
-      weatherDesc === 'heavy intensity shower rain' ||
-      weatherDesc === 'ragged shower rain' ||
-      weatherDesc === 'light intensity drizzle' ||
-      weatherDesc === 'drizzle' ||
-      weatherDesc === 'heavy intensity drizzle' ||
-      weatherDesc === 'light intensity drizzle rain' ||
-      weatherDesc === 'drizzle rain' ||
-      weatherDesc === 'heavy intensity drizzle rain' ||
-      weatherDesc === 'shower rain and drizzle' ||
-      weatherDesc === 'heavy shower rain and drizzle' ||
-      weatherDesc === 'shower drizzle') {
-      this.url = "../../assets/images/rain/rain" + x + ".jpg";
-    }
+  private getURL(weatherDesc: string) {
+    let x = this.getRandomNumber();
 
-    if (weatherDesc === 'mist' || weatherDesc === 'Fog' || weatherDesc === 'Haze') {
-      this.url = "../../assets/images/fog/fog" + x + ".jpg";
-    }
-
-    if (weatherDesc === 'light snow' ||
-      weatherDesc === 'snow' ||
-      weatherDesc === 'heavy snow' ||
-      weatherDesc === 'sleet' ||
-      weatherDesc === 'light shower sleet' ||
-      weatherDesc === 'shower sleet' ||
-      weatherDesc === 'light rain and snow' ||
-      weatherDesc === 'rain and snow' ||
-      weatherDesc === 'light shower snow' ||
-      weatherDesc === 'shower snow' ||
-      weatherDesc === 'heavy shower snow') {
-      this.url = "../../assets/images/snow/snow" + x + ".jpg";
-    }
-
-    if (weatherDesc === 'thunderstorm with light rain' ||
-      weatherDesc === 'thunderstorm with rain' ||
-      weatherDesc === 'thunderstorm with heavy rain' ||
-      weatherDesc === 'light thunderstorm' ||
-      weatherDesc === 'thunderstorm' ||
-      weatherDesc === 'heavy thunderstorm' ||
-      weatherDesc === 'ragged thunderstorm' ||
-      weatherDesc === 'thunderstorm with light drizzle' ||
-      weatherDesc === 'thunderstorm with drizzle' ||
-      weatherDesc === 'thunderstorm with heavy drizzle') {
-      this.url = "../../assets/images/thunderstorm/thunder" + x + ".jpg";
-    }
-
-    if (weatherDesc === 'few clouds' ||
-      weatherDesc === 'scattered clouds' ||
-      weatherDesc === 'broken clouds' ||
-      weatherDesc === 'overcast clouds') {
-      this.url = "../../assets/images/cloudy/cloud" + x + ".jpg";
+    switch (weatherDesc) {
+      case 'clear sky':
+      case 'Clear':
+      case 'Windy':
+        this.url = `../../assets/images/summer/summer${x}.jpg`;
+        break;
+      case 'light rain':
+      case 'moderate rain':
+      case 'heavy intensity rain':
+      case 'very heavy rain':
+      case 'extreme rain':
+      case 'freezing rain':
+      case 'light intensity shower rain':
+      case 'shower rain':
+      case 'heavy intensity shower rain':
+      case 'ragged shower rain':
+      case 'light intensity drizzle':
+      case 'drizzle':
+      case 'heavy intensity drizzle':
+      case 'light intensity drizzle rain':
+      case 'drizzle rain':
+      case 'heavy intensity drizzle rain':
+      case 'shower rain and drizzle':
+      case 'heavy shower rain and drizzle':
+      case 'shower drizzle':
+        this.url = `../../assets/images/rain/rain${x}.jpg`;
+        break;
+      case 'mist':
+      case 'Fog':
+      case 'Haze':
+        this.url = `../../assets/images/fog/fog${x}.jpg`;
+        break;
+      case 'light snow':
+      case 'snow':
+      case 'heavy snow':
+      case 'sleet':
+      case 'light shower sleet':
+      case 'shower sleet':
+      case 'light rain and snow':
+      case 'rain and snow':
+      case 'light shower snow':
+      case 'shower snow':
+      case 'heavy shower snow':
+        this.url = `../../assets/images/snow/snow${x}.jpg`;
+        break;
+      case 'thunderstorm with light rain':
+      case 'thunderstorm with rain':
+      case 'thunderstorm with heavy rain':
+      case 'light thunderstorm':
+      case 'thunderstorm':
+      case 'heavy thunderstorm':
+      case 'ragged thunderstorm':
+      case 'thunderstorm with light drizzle':
+      case 'thunderstorm with drizzle':
+      case 'thunderstorm with heavy drizzle':
+        this.url = `../../assets/images/thunderstorm/thunder${x}.jpg`;
+        break;
+      case 'few clouds':
+      case 'scattered clouds':
+      case 'broken clouds':
+      case 'overcast clouds':
+        this.url = `../../assets/images/cloudy/cloud${x}.jpg`;
+        break;
     }
     console.log(this.url);
   }
