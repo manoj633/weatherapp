@@ -124,7 +124,7 @@ export class WeatherComponent implements OnInit {
       case 'scattered clouds':
       case 'broken clouds':
       case 'overcast clouds':
-        this.url = `../../assets/images/cloudy/cloud${x}.jpg`;
+        this.url = `../../assets/images/cloudy/cloud${x}.webp`;
         break;
     }
     console.log(this.url);
