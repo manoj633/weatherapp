@@ -93,7 +93,7 @@ export class WeatherComponent implements OnInit {
       case 'mist':
       case 'Fog':
       case 'Haze':
-        this.url = `../../assets/images/fog/fog${x}.jpg`;
+        this.url = `../../assets/images/fog/fog${x}.webp`;
         break;
       case 'light snow':
       case 'snow':
