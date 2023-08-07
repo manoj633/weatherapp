@@ -67,7 +67,7 @@ export class WeatherComponent implements OnInit {
       case 'clear sky':
       case 'Clear':
       case 'Windy':
-        this.url = `../../assets/images/summer/summer${x}.jpg`;
+        this.url = `../../assets/images/summer/summer${x}.webp`;
         break;
       case 'light rain':
       case 'moderate rain':
