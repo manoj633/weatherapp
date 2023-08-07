@@ -15,7 +15,7 @@ export class WeatherComponent implements OnInit {
   cityName: string = 'Shivamogga';
   city = this.cityName;
   cityList = ['Bangalore', 'Hubli', 'Mangalore', 'Mysore'];
-  url?: string = '../../assets/images/cloudy/cloud1.jpg';
+  url?: string = '../../assets/images/cloudy/cloud1.webp';
 
   constructor(private weatherService: WeatherService) { }
 
