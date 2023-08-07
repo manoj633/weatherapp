@@ -118,7 +118,7 @@ export class WeatherComponent implements OnInit {
       case 'thunderstorm with light drizzle':
       case 'thunderstorm with drizzle':
       case 'thunderstorm with heavy drizzle':
-        this.url = `../../assets/images/thunderstorm/thunder${x}.jpg`;
+        this.url = `../../assets/images/thunderstorm/thunder${x}.webp`;
         break;
       case 'few clouds':
       case 'scattered clouds':
