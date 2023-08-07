@@ -106,7 +106,7 @@ export class WeatherComponent implements OnInit {
       case 'light shower snow':
       case 'shower snow':
       case 'heavy shower snow':
-        this.url = `../../assets/images/snow/snow${x}.jpg`;
+        this.url = `../../assets/images/snow/snow${x}.webp`;
         break;
       case 'thunderstorm with light rain':
       case 'thunderstorm with rain':
