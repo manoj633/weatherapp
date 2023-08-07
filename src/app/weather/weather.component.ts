@@ -88,7 +88,7 @@ export class WeatherComponent implements OnInit {
       case 'shower rain and drizzle':
       case 'heavy shower rain and drizzle':
       case 'shower drizzle':
-        this.url = `../../assets/images/rain/rain${x}.jpg`;
+        this.url = `../../assets/images/rain/rain${x}.webp`;
         break;
       case 'mist':
       case 'Fog':
