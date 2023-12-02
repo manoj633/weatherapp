@@ -20,7 +20,14 @@ export class WeatherComponent implements OnInit {
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit(): void {
-    this.getWeatherData(this.cityName);
+
+    this.weatherService.getGeoLocation()
+      .then((coordinates: any) => {
+        this.getWeatherDataByCords(coordinates.latitude, coordinates.longitude);
+      })
+      .catch(error => {
+        console.error(error);
+      });
   }
 
   onSubmit() {
@@ -45,6 +52,21 @@ export class WeatherComponent implements OnInit {
 
   private getWeatherData(cityName: string) {
     this.weatherDataO$ = this.weatherService.getWeatherData(cityName).pipe(
+      map(response => {
+        this.getURL(response.weather[0].description);
+        response.dt = new Date();
+        return response;
+      }),
+      catchError((error) => {
+        console.error('error loading the list of users', error);
+        this.loadingError$.next(true);
+        return of();
+      })
+    );
+  }
+
+  private getWeatherDataByCords(lat: number, long: number) {
+    this.weatherDataO$ = this.weatherService.getWeatherDataByCords(lat, long).pipe(
       map(response => {
         this.getURL(response.weather[0].description);
         response.dt = new Date();
@@ -127,6 +149,5 @@ export class WeatherComponent implements OnInit {
         this.url = `../../assets/images/cloudy/cloud${x}.webp`;
         break;
     }
-    console.log(this.url);
   }
 }
