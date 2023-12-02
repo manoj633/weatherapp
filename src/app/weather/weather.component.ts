@@ -21,12 +21,28 @@ export class WeatherComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.weatherService.getGeoLocation()
-      .then((coordinates: any) => {
-        this.getWeatherDataByCords(coordinates.latitude, coordinates.longitude);
+    navigator.permissions.query({ name: 'geolocation' })
+      .then(permissionStatus => {
+        console.log('Permission status:', permissionStatus.state);
+        // Permission status can be 'granted', 'denied', 'prompt'
+        // Handle the permission status as needed
+        if (permissionStatus.state === 'granted') {
+          this.weatherService.getGeoLocation()
+            .then((coordinates: any) => {
+              this.getWeatherDataByCords(coordinates.latitude, coordinates.longitude);
+            })
+            .catch(error => {
+              console.error(error);
+            });
+        } else if (permissionStatus.state === 'denied') {
+          this.getWeatherData(this.cityName);
+        } else if (permissionStatus.state === 'prompt') {
+          // Geolocation permission is requested but not yet granted or denied
+          alert('Please provide the site access to your location by going to site settings');
+        }
       })
       .catch(error => {
-        console.error(error);
+        console.error('Error checking permission:', error);
       });
   }
 
