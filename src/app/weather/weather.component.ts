@@ -20,7 +20,30 @@ export class WeatherComponent implements OnInit {
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit(): void {
-    this.getWeatherData(this.cityName);
+
+    navigator.permissions.query({ name: 'geolocation' })
+      .then(permissionStatus => {
+        console.log('Permission status:', permissionStatus.state);
+        // Permission status can be 'granted', 'denied', 'prompt'
+        // Handle the permission status as needed
+        if (permissionStatus.state === 'granted') {
+          this.weatherService.getGeoLocation()
+            .then((coordinates: any) => {
+              this.getWeatherDataByCords(coordinates.latitude, coordinates.longitude);
+            })
+            .catch(error => {
+              console.error(error);
+            });
+        } else if (permissionStatus.state === 'denied') {
+          this.getWeatherData(this.cityName);
+        } else if (permissionStatus.state === 'prompt') {
+          // Geolocation permission is requested but not yet granted or denied
+          alert('Please provide the site access to your location by going to site settings');
+        }
+      })
+      .catch(error => {
+        console.error('Error checking permission:', error);
+      });
   }
 
   onSubmit() {
@@ -45,6 +68,21 @@ export class WeatherComponent implements OnInit {
 
   private getWeatherData(cityName: string) {
     this.weatherDataO$ = this.weatherService.getWeatherData(cityName).pipe(
+      map(response => {
+        this.getURL(response.weather[0].description);
+        response.dt = new Date();
+        return response;
+      }),
+      catchError((error) => {
+        console.error('error loading the list of users', error);
+        this.loadingError$.next(true);
+        return of();
+      })
+    );
+  }
+
+  private getWeatherDataByCords(lat: number, long: number) {
+    this.weatherDataO$ = this.weatherService.getWeatherDataByCords(lat, long).pipe(
       map(response => {
         this.getURL(response.weather[0].description);
         response.dt = new Date();
@@ -127,6 +165,5 @@ export class WeatherComponent implements OnInit {
         this.url = `../../assets/images/cloudy/cloud${x}.webp`;
         break;
     }
-    console.log(this.url);
   }
 }
