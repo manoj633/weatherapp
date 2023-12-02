@@ -48,7 +48,7 @@ export class WeatherService {
         );
       });
     } else {
-      return Promise.reject("Geolocation is not supported by this browser.");
+      return Promise.reject(new Error("Geolocation is not supported by this browser."));
     }
   }
 }
